@@ -111,6 +111,7 @@ public class AxiomBigPayloadHandler extends MessageToMessageDecoder<ByteBuf> {
         try {
             handler.onReceive(player.getBukkitEntity(), friendlyByteBuf);
         } catch (Throwable t) {
+            t.printStackTrace();
             player.connection.disconnectAsync(net.minecraft.network.chat.Component.literal("Error while processing Axiom packet " + identifier + ": " + t.getMessage()), DisconnectionReason.UNKNOWN);
         }
     }
